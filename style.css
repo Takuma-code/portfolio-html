@@ -1,273 +1,131 @@
-/* ベーススタイル */
-html, body {
+body {
+  font-family: 'Helvetica', sans-serif;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  color: #333;
-  background: #fff;
-  scroll-behavior: smooth;  /* スムーズスクロール */
-}
-body {
   line-height: 1.6;
 }
-/* リンクの基本スタイル */
-a {
-  color: #3498db;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
 
-/* ヘッダー・ナビバー */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
-  padding: 0.5em 1em;
-  border-bottom: 1px solid #eee;
+header {
+  background: #0077aa;
+  color: white;
+  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
-.navbar .logo {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #3498db;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
-  gap: 1em;
-  margin: 0;
-  padding: 0;
+  gap: 1rem;
 }
-.navbar li {
-  /* 各メニュー項目 */
+
+.navbar a {
+  color: white;
+  text-decoration: none;
 }
-.navbar li a {
-  padding: 0.5em;
-  display: block;
-}
-.navbar li a:hover {
-  background: #f0f8ff;
-  border-radius: 4px;
-}
-/* ハンバーガーボタン（モバイル用） */
+
 .nav-toggle {
   display: none;
+  font-size: 1.5rem;
   background: none;
   border: none;
-  font-size: 1.5em;
-  cursor: pointer;
+  color: white;
 }
 
-/* ヒーローセクション（スライドショー） */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #0077aa;
+    position: absolute;
+    right: 1rem;
+    top: 60px;
+  }
+  .nav-menu.open {
+    display: flex;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
 .hero-section {
-  position: relative;
-  height: 100vh;
-  min-height: 500px;
-  overflow: hidden;
-  color: #fff;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #66aaff, #33ccff);
+  color: white;
 }
-.hero-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+
 .hero-slide img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
+  max-height: 300px;
   object-fit: cover;
-  opacity: 0;
-  /* 画像のフェード切替アニメーション */
-  animation: slideAnim 12s infinite;
-}
-.hero-slide img:nth-child(1) { animation-delay: 0s; }
-.hero-slide img:nth-child(2) { animation-delay: 4s; }
-.hero-slide img:nth-child(3) { animation-delay: 8s; }
-@keyframes slideAnim {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  30%  { opacity: 1; }
-  33%  { opacity: 0; }
-  100% { opacity: 0; }
-}
-/* ヒーローテキストコンテンツ */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  padding: 0 1em;
-}
-.hero-content h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
-.hero-content p {
-  font-size: 1.2em;
 }
 
-/* セクション共通スタイル */
-main section {
-  padding: 4em 1em;
-  max-width: 800px;
-  margin: 0 auto;
-}
-main section:not(#home) {
-  /* ホーム以外のセクションの背景色交互 */
-  background: #f9f9f9;
-}
-main section:nth-of-type(even):not(#home) {
-  background: #ffffff;
-}
-main h2 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-  color: #3498db;
-  text-align: center;
-}
-
-/* 実績セクションのグリッド */
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5em;
-  margin-top: 2em;
-}
-.card {
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  padding: 1em;
-  transition: transform 0.3s ease;
-  text-align: center;
-}
-.card img {
-  width: 100%;
-  border-radius: 4px;
-  margin-bottom: 0.5em;
-}
-.card h3 {
-  margin: 0.5em 0;
-  color: #3498db;
-}
-.card p {
-  font-size: 0.95em;
-  line-height: 1.5;
-  color: #555;
-}
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-/* スキルセクションのタグスタイル */
-.skills-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  justify-content: center;
-  margin-top: 1em;
-}
-.skills-list span {
-  display: inline-block;
-  background: #e8f5ff;
-  color: #3498db;
-  padding: 0.4em 0.8em;
-  border-radius: 3em;
-  font-size: 0.9em;
-}
-
-/* フォームスタイル */
-#contact form {
-  max-width: 600px;
-  margin: 1em auto 0 auto;
-}
-#contact form div {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1em;
-}
-#contact form label {
-  margin-bottom: 0.3em;
-  font-weight: bold;
-}
-#contact form input,
-#contact form textarea {
-  padding: 0.5em;
-  font-size: 1em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
-}
-#contact form button {
-  background: #3498db;
-  color: #fff;
-  font-size: 1em;
-  padding: 0.6em 1.2em;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-#contact form button:hover {
-  background: #2980b9;
-}
-
-/* フッター */
-footer {
-  text-align: center;
-  padding: 1em;
-  background: #f0f0f0;
-  color: #666;
-  font-size: 0.9em;
-}
-
-/* IntersectionObserver用：非表示状態と表示状態のアニメーション */
 .hidden {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
 }
+
 .show {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* メディアクエリ：スマホ向けレイアウト調整 */
-@media (max-width: 768px) {
-  .navbar ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    padding: 0.5em 1em;
-    width: 200px;
-  }
-  .navbar ul.open {
-    display: flex;
-  }
-  .nav-toggle {
-    display: block;
-    margin-left: auto;
-  }
-  .hero-content h1 {
-    font-size: 2em;
-  }
-  main section {
-    padding: 3em 1em;
-  }
+section {
+  padding: 3rem 2rem;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #0077aa;
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #005f8a;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #333;
+  color: white;
 }
