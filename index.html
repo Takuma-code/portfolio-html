@@ -2,40 +2,162 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Takumaのポートフォリオ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <title>Takumaのポートフォリオ</title>
+  <style>
+    :root {
+      --main-color: #007acc;
+      --bg-color: #f9f9f9;
+      --text-color: #333;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: linear-gradient(to right, var(--main-color), #00bcd4);
+      padding: 2rem;
+      text-align: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+
+    section {
+      margin-bottom: 4rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills li {
+      background: var(--main-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      background: #eee;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .slideshow {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .slideshow img.active {
+      opacity: 1;
+      position: relative;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <h1>Takuma's Portfolio</h1>
-      <nav>
-        <ul>
-          <li><a href="#about">自己紹介</a></li>
-          <li><a href="#works">実績</a></li>
-          <li><a href="#skills">スキル</a></li>
-          <li><a href="#contact">連絡先</a></li>
-        </ul>
-      </nav>
-    </div>
+    <h1>Takumaのポートフォリオ</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">自己紹介</a></li>
+        <li><a href="#works">実績</a></li>
+        <li><a href="#skills">スキル</a></li>
+        <li><a href="#contact">連絡先</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main class="container">
+    <section class="slideshow">
+      <img src="https://via.placeholder.com/960x300/007acc/ffffff?text=Project+1" class="active">
+      <img src="https://via.placeholder.com/960x300/00bcd4/ffffff?text=Project+2">
+      <img src="https://via.placeholder.com/960x300/009688/ffffff?text=Project+3">
+    </section>
+
     <section id="about">
       <h2>自己紹介</h2>
-      <p>こんにちは、Takumaです。業務システムの開発や自動化、Web制作まで対応するフリーランスエンジニアです。副業案件の獲得を目指し、VBA、Java、JavaScript、HTML/CSS、Python、Vue.js、WordPressなど多様なスキルで対応可能です。</p>
+      <p>フリーランスエンジニアのTakumaです。VBAやJavaなどの業務開発経験に加え、Web制作や自動化スクリプトの作成など、幅広く対応しています。</p>
     </section>
 
     <section id="works">
       <h2>実績</h2>
       <div class="cards">
-        <div class="card"><h3>Excelグレップツール</h3><p>Excel内の文字列を一括検索・表示（VBA）</p></div>
-        <div class="card"><h3>ToDoアプリ</h3><p>ローカルストレージ対応のタスク管理（JavaScript）</p></div>
-        <div class="card"><h3>電卓アプリ</h3><p>基本的な四則演算対応（JavaScript）</p></div>
-        <div class="card"><h3>Pythonスクリプト</h3><p>ファイル一覧＋更新時刻表示の自動化ツール</p></div>
-        <div class="card"><h3>Vue.js ToDo</h3><p>シンプルなSPA形式のタスク管理</p></div>
-        <div class="card"><h3>WordPress構築</h3><p>LP制作、お問い合わせ、SEO対応</p></div>
+        <div class="card"><h3>Excelグレップツール</h3><p>VBAによる文字列検索ツール</p></div>
+        <div class="card"><h3>ToDoアプリ</h3><p>JavaScriptとLocalStorageを使用したタスク管理</p></div>
+        <div class="card"><h3>Pythonスクリプト</h3><p>ファイル一覧と更新時間の収集</p></div>
+        <div class="card"><h3>Vue.js SPA</h3><p>ToDo管理のシングルページアプリケーション</p></div>
+        <div class="card"><h3>WordPressサイト</h3><p>企業用LPやブログ構築</p></div>
       </div>
     </section>
 
@@ -54,14 +176,25 @@
 
     <section id="contact">
       <h2>連絡先</h2>
-      <p>GitHub: <a href="https://github.com/YOUR_USERNAME" target="_blank">https://github.com/YOUR_USERNAME</a></p>
-      <p>メール: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>ブログ: <a href="https://yourportfolio.wordpress.com" target="_blank">WordPressサイト</a></p>
+      <p>GitHub: <a href="https://github.com/YOUR_USERNAME">https://github.com/YOUR_USERNAME</a></p>
+      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Takuma</p>
   </footer>
+
+  <script>
+    // スライドショー機能
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3000);
+  </script>
 </body>
 </html>
