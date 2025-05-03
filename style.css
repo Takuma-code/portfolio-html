@@ -1,3 +1,60 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #0077aa;
+  color: white;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #66aaff, #33ccff);
+  color: white;
+}
+
+.hero-slide img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+section {
+  padding: 3rem 2rem;
+}
+
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
 .hidden {
   opacity: 0;
   transform: translateY(20px);
@@ -17,7 +74,8 @@ form {
   gap: 1rem;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   padding: 0.5rem;
   font-size: 1rem;
 }
